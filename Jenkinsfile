@@ -17,7 +17,7 @@ pipeline {
            steps {
              
                 //sh 'mvn package'
-		sh 'mvn --version'
+		sh 'mvn clean package'
           }
         }
         
@@ -54,7 +54,7 @@ pipeline {
  stage('Run Docker container on remote host') {
              
             steps {
-                sh "docker -H ssh://jenkins@13.201.71.58 run -d -p 8003:8080 lokesh2205/samplewebapp"
+                sh "docker run -d -p 8003:8080 lokesh2205/samplewebapp"
  
             }
         }
